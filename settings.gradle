@@ -1,0 +1,11 @@
+rootProject.name = 'java9-project'
+
+include 'sample-project-dao-api'
+
+include 'sample-project-dao-cassandra'
+
+include 'sample-project-dao-sql'
+
+include 'sample-project-console'
+
+

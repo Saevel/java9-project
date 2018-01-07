@@ -1,0 +1,26 @@
+group 'prv.zielony.java9.sample.project'
+
+version '1.0'
+
+apply plugin: 'java'
+
+apply plugin: "java-library"
+
+sourceCompatibility = 1.9
+targetCompatibility = 1.9
+
+dependencies {
+    api project(':sample-project-dao-api')
+}
+
+ext.moduleName = 'sample.project.dao.sql'
+
+compileJava {
+    inputs.property("moduleName", moduleName)
+    doFirst {
+        options.compilerArgs = [
+                '--module-path', classpath.asPath,
+        ]
+        classpath = files()
+    }
+}

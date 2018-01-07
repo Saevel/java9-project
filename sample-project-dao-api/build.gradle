@@ -1,0 +1,20 @@
+group 'prv.zielony.java9.sample.project'
+
+version '1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.9
+targetCompatibility = 1.9
+
+ext.moduleName = 'sample.project.dao.api'
+
+compileJava {
+    inputs.property("moduleName", moduleName)
+    doFirst {
+        options.compilerArgs = [
+                '--module-path', classpath.asPath,
+        ]
+        classpath = files()
+    }
+}
